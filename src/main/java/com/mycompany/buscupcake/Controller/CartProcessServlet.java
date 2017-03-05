@@ -74,6 +74,6 @@ public class CartProcessServlet extends HttpServlet {
         }
         request.setAttribute("cartlist", cartlist);     
         //response.sendRedirect("cart.jsp");
-        getServletContext().getRequestDispatcher("cart.jsp").forward(request, response);      
+        getServletContext().getRequestDispatcher("/cart.jsp").forward(request, response);      
     }
 }

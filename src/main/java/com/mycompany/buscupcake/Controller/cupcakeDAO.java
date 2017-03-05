@@ -91,7 +91,7 @@ public class cupcakeDAO {
     {
         Statement stmt = conn.getConnection().createStatement();
         List<Cupcake> cupcakes = new ArrayList<>();
-        String sql = "SELECT *, i1.price + i2.price as ccprice, i1.name as topname, i2.name as botname\n" +
+        String sql = "SELECT *, I1.price + I2.price as ccprice, I1.name as topname, I2.name as botname\n" +
         "from cart \n" +
         "left join cupcake\n" +
         " on cart.cupcakeid = cupcake.cupcakeid\n" +
@@ -398,7 +398,7 @@ public class cupcakeDAO {
     {
         Statement stmt = conn.getConnection().createStatement();
         List<Purchase> purchases = new ArrayList<>();
-        String sql = "SELECT *, i1.price + i2.price as ccprice, i1.name as topname, i2.name as botname\n" +
+        String sql = "SELECT *, I1.price + I2.price as ccprice, I1.name as topname, I2.name as botname\n" +
         "from purchasecupcake \n" +
         "left join purchase\n" +
         "on purchasecupcake.purchaseid = purchase.purchaseid\n" +

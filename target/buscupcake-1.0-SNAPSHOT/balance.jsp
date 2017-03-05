@@ -55,17 +55,12 @@ for(Cookie cookie : cookies){
 }
 
 %>
+    
     <% 
     userDAO dao = new userDAO();
     Integer userid = (Integer) session.getAttribute("uid");
     int frog = dao.getUserCredit(userid);
-    cupcakeDAO dao3 = new cupcakeDAO();
-    List<Item> bottomslist = dao3.getBottoms();
-    request.setAttribute("bottomslist", bottomslist);
-    List<Item> toppingslist = dao3.getToppings();
-    request.setAttribute("toppingslist", toppingslist);
     %>
-
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -120,107 +115,20 @@ for(Cookie cookie : cookies){
         <!-- Heading Row -->
         <div class="row">
             <div class="col-md-8">
-                <img class="img-responsive img-rounded" src="http://heidicohen.com/wp-content/uploads/Big-Fat-Cat-.jpg" width="900" height="350" alt="">
+                <img class="img-responsive img-rounded" src="https://thumbs.dreamstime.com/z/young-crazy-rich-man-19904651.jpg" width="900" height="350" alt="">
             </div>
             <!-- /.col-md-8 -->
             <div class="col-md-4">
+                <h1>Let me credit your good decision! </h1>
+                <p> Why not get some money and increase your standing with the click of a button? It's just arbitrary numbers after all. </p>
+                <a class="btn btn-primary btn-lg" href="/buscupcake/drink">Get Credit!</a>
                 
-                <h1>Why is this cat more carefree than you?</h1>
-                <p>He's an alleycat near our bakery, living on our premium trash and swears it's his secret to being over 100 cat years. Read our contact page to read other cats who have had similar success and to find out whether our cupcakes can you help you become a better you! </p>
-                
-                <a class="btn btn-primary btn-lg" href="#">Read more here!</a>
             </div>
             <!-- /.col-md-4 -->
         </div>
         <!-- /.row -->
 
         <hr>
-
-        <!-- Call to Action Well -->
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="well text-center">
-
-                    <form action="OrderServlet" method="post">
-            Select Muffin Topping
-            <select name="sTopping">
-                <c:forEach var="item" items="${toppingslist}">
-                    <option value="${item.id}">${item.name}</option>
-                </c:forEach>
-            </select>
-            Select Muffin Bottom
-             <select name="sBottom">
-                <c:forEach var="item" items="${bottomslist}">
-                    <option value="${item.id}">${item.name}</option>
-                </c:forEach>
-            </select>
-            Amount
-            <input type="number" name="sAmount" value="1">
-            
-        <input type="submit">
-        </form>
-                </div>
-            </div>
-            <!-- /.col-lg-12 -->
-        </div>
-        <!-- /.row -->
-        
-
-        <!-- Content Row -->
-        <div class="row">
-            <div class="col-md-4">
-                <h2>Available Toppings</h2>
-                <table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>name</th>
-      <th>price</th>
-      <th>type</th>
-      <th>purchase</th>
-    </tr>
-  </thead>
-<c:forEach var="item" items="${toppingslist}">
-		<tr>
-			<td>${item.name}</td>
-			<td>${item.price}</td>
-			<td>${item.type}</td>
-                        <td><form action="ViewServlet" method="post">
-            <button type="submit" name= "seltopping" value="${item.id}"> Info
-                            </form></td>
-		</tr>
-	</c:forEach></table>
-                <a class="btn btn-default" href="#">More Info</a>
-            </div>
-            <div class="col-md-4">
-                
-            </div>
-            <!-- /.col-md-4 -->
-            <div class="col-md-4">
-                <h2>Available Bottoms</h2>
-                <p><table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>name</th>
-      <th>price</th>
-      <th>type</th>
-      <th>purchase</th>
-    </tr>
-  </thead>
-<c:forEach var="item" items="${bottomslist}">
-		<tr>
-			<td>${item.name}</td>
-			<td>${item.price}</td>
-			<td>${item.type}</td>
-                        <td><form action="ViewServlet" method="post">
-            <button type="submit" name= "seltopping" value="${item.id}"> Info
-                            </form></td>
-		</tr>
-</c:forEach></table></p>
-                <a class="btn btn-default" href="#">More Info</a>
-            </div>
-            <!-- /.col-md-4 -->
-        </div>
-        <!-- /.row -->
 
         <!-- Footer -->
         <footer>

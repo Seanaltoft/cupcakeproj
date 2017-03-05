@@ -48,8 +48,7 @@ public class CartServlet extends HttpServlet {
            int cartid = Integer.parseInt(request.getParameter("Remove"));
            dao.setCartStatusAborted(cartid);
            out.print("Cupcake, topping: bottom: . Removed");
-           RequestDispatcher rd=request.getRequestDispatcher("cart.jsp");
-           rd.include(request,response);
+           response.sendRedirect("CartProcessServlet");
         }
         else if (request.getParameter("RemoveAll") != null)
         {
@@ -77,8 +76,7 @@ public class CartServlet extends HttpServlet {
                 if (receipttotal>userbalance)
                 {
                     out.print("Not enough balance to purchase items!");
-                    RequestDispatcher rd=request.getRequestDispatcher("cart.jsp");
-                    rd.include(request,response);
+                    response.sendRedirect("CartProcessServlet");
                 }
                 else if (purchaseditems.size() > 0)
                 {
@@ -89,8 +87,7 @@ public class CartServlet extends HttpServlet {
                 }
                 else{
                     out.print("Cart is empty!");
-                    RequestDispatcher rd=request.getRequestDispatcher("cart.jsp");
-                    rd.include(request,response);
+                    response.sendRedirect("CartProcessServlet");
                 }
         }
                         out.close();
